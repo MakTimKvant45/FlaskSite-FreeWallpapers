@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Минимализм</title>
+{% endblock %}
+
+{% block body %}
+<img src="https://vsthemes.org/uploads/posts/2018-03/1582033788_minimalist-coffee_vsthemes_ru-22.jpg" class="d-block w-100" alt="">
+<div class="carousel-caption d-none d-md-block">
+    <h2>Минималистичные обои</h2>
+</div>
+<div class="container popular">
+    <h2 class="Heading">Все минималистичные обои</h2>
+    <div class="row">
+        {% for w in papers %}
+        {% if w[3] == "minimalismK" %}
+        <div class="col-12 col-md-6 col-lg-3 col-xs-12 mb-2">
+          <div class="card" style="width: 18rem; height: 22rem;">
+              <img src="static/upload/{{ w[4] }}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{ w[1] }}</h5>
+                <p class="card-text">{{ w[2] }}</p>
+                <a href="static/upload/{{ w[4] }}" download class="btn btn-primary">Скачать</a>
+              </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}           
+    </div>
+</div>
+{% endblock %}

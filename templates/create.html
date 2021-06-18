@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+</head>
+<body class="text-center">
+    {% if user == None %}
+    <div class="text-center">
+        <img src="/static/upload/big_pikachudetective_13.png" class="rounded" alt="...">
+        <h3>Эй, я тебя не знаю! Тебе надо <a href="/login" style="text-decoration: none;">познакомиться</a> со мной и я покажу тебе эту страницу)</h3>
+    </div>
+    {% endif %}
+    {% if user != None %}
+    <div class="container">
+        <form action="/fun/create" enctype="multipart/form-data"  method="post">
+            <a href="/"><img class="mb-4" src="https://printouch.ru/img/home/list-bumagi.png" alt="" width="72" height="72"></a>
+            <h1 class="h3 mb-3 fw-normal">Добавление обоев</h1>
+            <div>
+                <input type="file" class="form-control" id="floatingInput" name="photo">
+            </div> <br>
+            <select class="form-select" aria-label="Default select example" name="kategory">
+                <option selected>Категория</option>
+                <option value="natureK">Природа</option>
+                <option value="animeK">Аниме</option>
+                <option value="animalsK">Животные</option>
+                <option value="autoK">Автомобили</option>
+                <option value="gameK">Игры</option>
+                <option value="futureK">Будущее</option>
+                <option value="pixelK">Пиксельные</option>
+                <option value="minimalismK">Минимализм</option>
+                <option value="spaceK">Космос</option>
+                <option value="memeK">Мемы</option>
+              </select> <br>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" name="title">
+                <label for="floatingInput">Название</label>
+            </div> <br>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" name="content" maxlength="87">
+                <label for="floatingInput">Описание</label>
+            </div> <br>
+
+            <button class="w-10 btn btn-lg btn-primary" type="submit">Добавить</button>
+
+
+        </form>
+    </div>
+    {% endif %}
+</body>
+</html>
